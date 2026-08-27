@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f4ed;
+  color: #333;
+}
+
+.header {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #5a3825;
+  color: white;
+}
+
+.header h1 {
+  margin: 0 0 10px;
+  font-size: 42px;
+}
+
+.header p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.menu {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.menu h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 35px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.menu-item {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.name {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.description {
+  line-height: 1.5;
+}
+
+.category {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #eee;
+  font-size: 14px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 35px 15px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .header p {
+    font-size: 16px;
+  }
+
+  .menu-section {
+    padding: 35px 15px;
+  }
+}
+
+
+.category.drink {
+  background-color: #f3e1c3;
+  color: #a25c07;
+}
+
+.category.breakfast {
+  background-color: #b4fbd1;
+  color: #199115;
+}
+
+.category.main {
+  background-color: #fce4ec;
+  color: #ad1457;
+}
+
+.category.dessert {
+  background-color: #f3e5f5;
+  color: #8d13da;
+}
+
+.footer {
+  text-align: center;
+  padding: 25px;
+  margin-top: 30px;
+  background-color: #5a3825;
+  color: white;
+}
