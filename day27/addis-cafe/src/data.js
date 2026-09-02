@@ -1,0 +1,53 @@
+const dishes=[
+    {
+        id: 2,
+        name: "Shiro",
+        price: 250,
+        description: "Traditional Ethiopian chickpea stew",
+        category: "Main",
+        spicy: true,
+    },
+    {
+        id: 3,
+        name: "Doro",
+        price: 400,
+        description: "Traditional Ethiopian chicken stew with peppers and spices",
+        category: "Main",
+        spicy: true,
+    },
+    {
+        id: 4,
+        name: "Firfir",
+        price: 200,
+        description: "Injera pieces mixed with pepper sauce and spices",
+        category: "Breakfast",
+        spicy: true,
+    },
+    {
+        id: 5,
+        name: "Chechebsa",
+        price: 150,
+        description: "Shredded flatbread with butter and honey",
+        category: "Breakfast",
+        spicy: false,
+    },
+    {
+        id: 6,
+        name: "Baklava",
+        price: 70,
+        description: "Tradditional Ethiopian crispy layered pastry with nuts and honey syrup",
+        category: "Dessert",
+        spicy: false,
+    },  
+
+        {
+        id: 8,
+        name: "Kitfo",
+        price: 400,
+        description: "Traditional Ethiopian minced beef with mitmita spice",
+        category: "Main",
+        spicy: true,
+    }
+
+];
+export default dishes;
