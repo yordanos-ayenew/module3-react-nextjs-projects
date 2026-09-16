@@ -1,16 +1,18 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "./cart/CartProvider";
+import { useCartStore } from "./cart/cartStore";
 
 function Checkout() {
-  const {items, total, dispatch} = useContext(CartContext);
+  const items = useCartStore((s) => s.items);
+  const total = useCartStore((s) =>
+    s.items.reduce((sum, item) => sum + item.price * item.qty, 0)
+  );
+  const clear = useCartStore((s) => s.clear);
   const navigate = useNavigate();
+
   function placeOrder() {
     alert("Order placed successfully!");
-    dispatch({type: "clear"});
-    navigate("/menu", {
-      replace: true,
-    });
+    clear();
+    navigate("/menu", {replace: true});
   }
   if (items.length === 0) {
     return (

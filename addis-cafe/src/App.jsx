@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./cart/CartProvider";
 import Layout from "./Layout";
 import Home from "./Home";
 import Menu from "./Menu";
@@ -15,7 +14,6 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <CartProvider>
           <Routes>
             <Route path="/" element={<Layout />}>              
               <Route index element={<Home />} />
@@ -33,7 +31,6 @@ function App() {
               <Route path="*" element={<NotFound />}/>
             </Route>
           </Routes>
-        </CartProvider>
       </AuthProvider>
     </BrowserRouter>
   );

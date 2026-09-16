@@ -1,13 +1,13 @@
-import { useContext } from "react";
-import { CartContext } from "./cart/CartProvider";
+import { useCartStore } from "./cart/cartStore";
 
 function CartBadge() {
-  const { items } = useContext(CartContext);
-  const itemCount = items.reduce((sum, item) => sum + item.qty, 0);
+  const count = useCartStore((s) =>
+    s.items.reduce((sum, item) => sum + item.qty, 0)
+  );
 
   return (
     <span>
-      <h2>🛒 Cart: {itemCount}</h2>
+      <h2>🛒 Cart: {count}</h2>
     </span>
   );
 }

@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "./cart/CartProvider";
+import { useCartStore } from "./cart/cartStore";
 
 function Cart() {
-  const {items, dispatch, total} = useContext(CartContext);
+  const items = useCartStore((s) => s.items);
+  const remove = useCartStore((s) => s.remove);
+  const clear = useCartStore((s) => s.clear);
+  const total = useCartStore((s) =>
+    s.items.reduce((sum, item) => sum + item.price * item.qty, 0)
+  );
   if (items.length === 0) {
     return (
       <div>
@@ -22,15 +26,11 @@ function Cart() {
         <div key={item.id}>
           <h3>{item.name}</h3>
           <p>{item.price} ETB x {item.qty}</p>
-          <button onClick={() => dispatch({type: "remove", payload: item.id,})}>
-            Remove
-          </button>
+          <button onClick={() => remove(item.id)}>Remove</button>
         </div>
       ))}
       <h3>Total: {total} ETB</h3>
-      <button onClick={() => dispatch({ type: "clear" })}>
-        Clear Cart
-      </button>
+      <button onClick={clear}>Clear Cart</button>
       <br />
       <br />
       <Link to="/checkout">

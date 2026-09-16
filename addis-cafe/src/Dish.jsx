@@ -1,24 +1,18 @@
 import PropTypes from "prop-types";
-import { useContext } from "react";
-import { CartContext } from "./cart/CartProvider";
+import { useCartStore } from "./cart/cartStore";
 
 function Dish({id, name, price, spicy, description, currency = "ETB",}) {
-  const { items, dispatch } = useContext(CartContext);
-  const item = items.find((item) => item.id === id);
-  const quantity = item ? item.qty : 0;
+  const quantity = useCartStore(
+    (s) => s.items.find((item) => item.id === id)?.qty ?? 0
+  );
+  const addItem = useCartStore((s) => s.addItem);
+  const remove = useCartStore((s) => s.remove);
 
   function handleAdd() {
-    dispatch({
-      type: "add",
-      payload: {id, name, price, description, spicy}
-    });
+      addItem({id, name, price, description, spicy});
   }
-
   function handleRemove() {
-    dispatch({
-      type: "remove",
-      payload: id,
-    });
+    remove(id);
   }
 
   return (
