@@ -4,7 +4,7 @@ import Home from "./Home";
 import Menu from "./Menu";
 import DishDetail from "./DishDetail";
 import Cart from "./Cart";
-import Checkout from "./Checkout";
+import Checkout from "./checkout/Checkout";
 import NotFound from "./NotFound";
 import RequireAuth from "./auth/RequireAuth";
 import { AuthProvider } from "./auth/AuthContext";
