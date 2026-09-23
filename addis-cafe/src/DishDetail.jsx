@@ -1,11 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import useFetch from "./hooks/useFetch";
+import { useCartStore } from "./cart/cartStore";
 
 function DishDetail() {
   const { id } = useParams();
   const {
     data: dishes, loading, error,
   } = useFetch("/dishes.json");
+  const addItem = useCartStore((s) => s.addItem);
   if (loading) {
     return <p>Loading dish...</p>;
   }
@@ -26,6 +28,10 @@ function DishDetail() {
       </div>
     );
   }
+
+  function handleAdd() {
+    addItem(dish);
+  }
   return (
     <div>
       <h2>{dish.name}</h2>
@@ -33,6 +39,9 @@ function DishDetail() {
       <p>{dish.price} ETB</p>
       {dish.spicy && (<span>Spicy</span>)}
       <p>Category: {dish.category}</p>
+      <button onClick={handleAdd}>Add to Cart</button>
+      <br />
+      <br />
       <Link to="/menu">
         Back to Menu
       </Link>

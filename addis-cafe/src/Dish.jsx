@@ -18,7 +18,6 @@ function Dish({id, name, price, spicy, description, currency = "ETB",}) {
   function handleRemove() {
     remove(id);
   }
-
   return (
     <div>
       <h3>{name}</h3>

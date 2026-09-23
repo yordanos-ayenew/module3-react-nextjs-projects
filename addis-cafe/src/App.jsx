@@ -6,7 +6,7 @@ import DishDetail from "./DishDetail";
 import Cart from "./Cart";
 import NotFound from "./NotFound";
 import RequireAuth from "./auth/RequireAuth";
-import { AuthProvider } from "./auth/AuthContext";
+import AuthProvider from "./auth/AuthProvider";
 import Login from "./auth/Login";
 import { lazy, Suspense } from "react";
 import ErrorBoundary from "./ErrorBoundary";

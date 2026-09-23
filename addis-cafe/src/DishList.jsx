@@ -11,7 +11,7 @@ function DishList({ dishes }) {
       {dishes.map((dish) => (
         <Card key={dish.id}>
           <Link to={`/menu/${dish.id}`}>
-            <h3>{dish.name}</h3>
+            View details
           </Link>
           <Dish {...dish}/>
         </Card>

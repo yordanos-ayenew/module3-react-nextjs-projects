@@ -6,9 +6,9 @@ function CartBadge() {
   );
 
   return (
-    <span>
+    <div>
       <h2>🛒 Cart: {count}</h2>
-    </span>
+    </div>
   );
 }
 export default CartBadge;
