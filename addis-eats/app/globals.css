@@ -1,1 +1,6 @@
 @import "tailwindcss";
+[data-selected-category="Main"] [data-category]:not([data-category="Main"]),
+[data-selected-category="Breakfast"] [data-category]:not([data-category="Breakfast"]),
+[data-selected-category="Dessert"] [data-category]:not([data-category="Dessert"]) {
+  display: none;
+}

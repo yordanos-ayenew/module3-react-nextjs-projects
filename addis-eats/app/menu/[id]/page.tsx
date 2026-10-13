@@ -1,52 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { dishes } from "@/lib/dishes";
 
-const dishes = [
-  {
-    id: 2,
-    name: "Shiro",
-    price: 250,
-    description: "Traditional Ethiopian chickpea stew",
-    category: "Main",
-  },
-  {
-    id: 3,
-    name: "Doro",
-    price: 400,
-    description:
-      "Traditional Ethiopian chicken stew with peppers and spices",
-    category: "Main",
-  },
-  {
-    id: 4,
-    name: "Firfir",
-    price: 200,
-    description: "Injera pieces mixed with pepper sauce and spices",
-    category: "Breakfast",
-  },
-  {
-    id: 5,
-    name: "Chechebsa",
-    price: 150,
-    description: "Shredded flatbread with butter and honey",
-    category: "Breakfast",
-  },
-  {
-    id: 6,
-    name: "Baklava",
-    price: 70,
-    description:
-      "Traditional Ethiopian crispy layered pastry with nuts and honey syrup",
-    category: "Dessert",
-  },
-  {
-    id: 8,
-    name: "Kitfo",
-    price: 400,
-    description: "Traditional Ethiopian minced beef with mitmita spice",
-    category: "Main",
-  },
-];
+export function generateStaticParams(){
+  return dishes.map((dish)=>({
+    id: String(dish.id)
+  }));
+}
 
 export default async function DishPage({params,}: {params: Promise<{ id: string }>;}) {
   const { id } = await params;
