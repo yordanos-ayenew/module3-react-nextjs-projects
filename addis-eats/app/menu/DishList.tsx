@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { dishes } from "@/lib/dishes";
+import AddToCartButton from "./AddToCartButton";
 
 export default function DishList() {
   return (
@@ -20,6 +21,13 @@ export default function DishList() {
           >
             View Dish
           </Link>
+          <AddToCartButton
+            dish={{
+              id: dish.id,
+              name: dish.name,
+              price: dish.price,
+            }}
+          />
         </div>
       ))}
     </div>
